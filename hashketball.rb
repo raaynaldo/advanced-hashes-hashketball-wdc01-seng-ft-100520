@@ -189,6 +189,29 @@ end
 def big_shoe_rebounds
   require "pry"
   game_hash().each {|h_a, team|
+    binding.pry
     return team[:players].max_by{|item| item[:shoe]}[:rebounds]
   }
 end
+
+
+def player_list
+    a = game_hash[:home][:players]+game_hash[:away][:players]
+    a
+end
+
+def player_with_largest_shoes
+  require "pry"
+  a = player_list().max_by{ |shoe_size|
+    # shoe_size[:shoe][:name]
+    shoe_size[:shoe]
+  }[:name]
+  a
+  # binding.pry
+end
+
+# puts player_list()
+# puts ""
+# puts game_hash()
+puts player_with_largest_shoes()
+# puts big_shoe_rebounds()
